@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		modal.style.display = "block";
 		const beverages = document.querySelectorAll(".beverage").length;
 		modal.querySelector("p").textContent =
-			`Заказ принят! Вы заказали ${getCorrectBeverageForm(beverages)}`;
+			`Заказ принят! Вы заказали ${beverages} напитков!`;
 	}
 	function hideModal() {
 		modalOverlay.style.display = "none";
@@ -108,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	closeButton.addEventListener("click", hideModal);
 	modalOverlay.addEventListener("click", hideModal);
 });
+
 function getAllOrders() {
 	const beverages = document.querySelectorAll(".beverage");
 	const orders = [];
@@ -134,16 +135,6 @@ function getAllOrders() {
 	return orders;
 }
 
-function getCorrectBeverageForm(count) {
-	const cases = [2, 0, 1, 1, 1, 2];
-	const titles = ["напиток", "напитка", "напитков"];
-	if (count % 100 > 4 && count % 100 < 20) {
-		const title = titles[2];
-		return `${count} ${title}`;
-	}
-	const title = titles[cases[count % 10 < 5 ? count % 10 : 5]];
-	return `${count} ${title}`;
-}
 const textarea = document.querySelector("textarea");
 textarea.addEventListener("input", () => {
 	let text = textarea.value.toLowerCase();
