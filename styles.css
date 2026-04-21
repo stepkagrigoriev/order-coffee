@@ -2,6 +2,31 @@
     border: 1px solid #eee;
     margin: 15px 0;
     padding: 15px;
+    position: relative;
+}
+
+.remove-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 20px;
+    line-height: 1;
+    color: #888;
+    cursor: pointer;
+}
+
+.remove-button:hover:not(:disabled) {
+    color: #000;
+}
+
+.remove-button:disabled {
+    color: #ddd;
+    cursor: not-allowed;
 }
 
 .beverage-count {
@@ -44,7 +69,6 @@
     border: 2px solid orange;
     border-radius: 5px;
 }
-
 .modal-close {
     position: absolute;
     top: 10px;
