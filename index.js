@@ -94,8 +94,20 @@ document.addEventListener("DOMContentLoaded", () => {
 		modalOverlay.style.display = "block";
 		modal.style.display = "block";
 		const beverages = document.querySelectorAll(".beverage").length;
-		modal.querySelector("p").textContent =
-			`Заказ принят! Вы заказали ${beverages} напитков!`;
+		const modten = beverages % 10;
+		const modhndr = beverages % 100;
+		if (modhndr !== 11 && modten === 1){
+			modal.querySelector("p").textContent =
+				`Заказ принят! Вы заказали ${beverages} напиток!`;
+		}
+		else if (modten === 2 || modten === 3 || modten === 4){
+			modal.querySelector("p").textContent =
+				`Заказ принят! Вы заказали ${beverages} напитка!`;
+		}
+		else{
+			modal.querySelector("p").textContent =
+				`Заказ принят! Вы заказали ${beverages} напитков!`;
+		}
 	}
 	function hideModal() {
 		modalOverlay.style.display = "none";
